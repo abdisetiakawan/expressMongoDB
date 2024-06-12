@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Data</title>
+  </head>
+  <body>
+    <a href="/products">Back</a>
+    <form action="/products/<%= product._id %>?_method=PUT" method="post">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" value="<%= product.name %>" />
+      <label for="brand">Brand</label>
+      <input type="text" name="brand" id="brand" value="<%= product.brand %>" />
+      <label for="price">Price</label>
+      <input type="number" name="price" id="price" value="<%= product.price %>" />
+      <label for="color">Color</label>
+      <input type="text" name="color" id="color" value="<%= product.color %>" />
+      <select name="category" id="category">
+        <option value="Aksesoris" <%= product.category == 'Aksesoris' ? 'selected' : '' %>>Aksesoris</option>
+        <option value="Pakaian" <%= product.category == 'Pakaian' ? 'selected' : '' %>>Pakaian</option>
+        <option value="Sepatu" <%= product.category == 'Sepatu' ? 'selected' : '' %>>Sepatu</option>
+      </select>
+      <input type="submit" />
+    </form>
+  </body>
+</html>

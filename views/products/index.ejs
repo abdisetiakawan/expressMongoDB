@@ -6,8 +6,18 @@
     <title>Data Produk</title>
   </head>
   <body>
-    <% for (let product of products) { %>
-    <li><%= product.name %> - <%= product.brand %></li>
-    <% } %>
+    <h1>Daftar Produk</h1>
+    <ul>
+      <a href="products/add">Tambahkan Data</a>
+      <% for (let product of products) { %>
+      <li>
+        <%= product.name %> - <%= product.brand %> -
+        <a href="/products/<%= product._id %>">details</a>
+      </li>
+      <form action="/products/<%= product._id %>?_method=DELETE" method="post">
+        <button type="submit">DELETE</button>
+      </form>
+      <% } %>
+    </ul>
   </body>
 </html>
